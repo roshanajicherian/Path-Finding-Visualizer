@@ -1,0 +1,1 @@
+Tk().wm_withdraw()
