@@ -7,7 +7,7 @@ from tkinter import *
 from tkinter import ttk
 from tkinter import messagebox
 pygame.init()
-win = pygame.display.set_mode((800, 800))
+win = pygame.display.set_mode((600, 600))
 pygame.display.set_caption('Pathfinding Visualizer')
 
 
@@ -46,8 +46,8 @@ class player(object):
 
 row = 25
 col = 25
-wid = 800/row
-ht = 800/col
+wid = 600/row
+ht = 600/col
 pink = (255, 8, 127)
 white = (255, 255, 255)
 blue = (0, 0, 255)
