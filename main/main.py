@@ -97,12 +97,34 @@ winin.mainloop()
 openSet.append(start)
 start.draw(pink, 0)
 end.draw(pink, 0)
+# function to convert the mouse press to an obstruction by altering obs value
+
+
+def mousepress(loc):
+    x_mouse = loc[0]
+    y_mouse = loc[1]
+    x_mouse_eq = x_mouse//(800//row)
+    y_mouse_eq = y_mouse//(800//col)
+    state = grid[x_mouse_eq][y_mouse_eq]
+    if state != start and state != end:
+        if state.block == False:
+            state.block = True
+            state.draw(white, 0)
+
+
 loop = True
 while loop:
     ev = pygame.event.get()
     for event in ev:
         if event.type == pygame.QUIT:
             pygame.quit()
+        if pygame.mouse.get_pressed()[0]:
+            try:
+
+                loc = pygame.mouse.get_pos()
+                mousepress(loc)
+            except AttributeError:
+                pass
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_SPACE:
                 loop = False
